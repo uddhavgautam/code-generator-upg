@@ -17,7 +17,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(modules = {
         AndroidSupportInjectionModule.class,
         ApplicationBindingModule.class})
-public interface CodeGenerationApplicationComponent extends AndroidInjector<CodeGenApplication> {
+public interface CodeGenApplicationComponent extends AndroidInjector<CodeGenApplication> {
 
     @Component.Builder
     abstract class Builder extends AndroidInjector.Builder<CodeGenApplication> {

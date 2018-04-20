@@ -41,15 +41,15 @@ public class ClientStatsCollector extends Thread {
         }
     }
 
-    private void updateCPUSampleTable(long currentTimeStamp, long uTime, long sTime, float cpuUsage) {
+    private void updateCPUSampleTable(String timeStamp, String userTime, String systemTime, String cpuUsage) {
         ClientstatsCpusampleDao clientstatsCpusampleDao = clientstatsDb.cpuSampleDAO();
-        ClientstatsCpusampleEntity clientstatsCpusampleEntity = new ClientstatsCpusampleEntity(currentTimeStamp, uTime, sTime, cpuUsage);
+        ClientstatsCpusampleEntity clientstatsCpusampleEntity = new ClientstatsCpusampleEntity(timeStamp, userTime, systemTime, cpuUsage);
         clientstatsCpusampleDao.insert(clientstatsCpusampleEntity);
     }
 
-    private void updateIOSampleTable(long currentTimeStamp, int readBytes, int writeBytes) {
+    private void updateIOSampleTable(String timeStamp, String readBytes, String writeBytes) {
         ClientstatsIosampleDao clientstatsIosampleDao = clientstatsDb.ioSampleDAO();
-        ClientstatsIosampleEntity clientstatsIosampleEntity = new ClientstatsIosampleEntity(currentTimeStamp, readBytes, writeBytes);
+        ClientstatsIosampleEntity clientstatsIosampleEntity = new ClientstatsIosampleEntity(timeStamp, readBytes, writeBytes);
         clientstatsIosampleDao.insert(clientstatsIosampleEntity);
     }
 }

@@ -1,5 +1,7 @@
 package com.example.gaute.codegeneration;
 
+import com.example.gaute.codegeneration.di.component.DaggerCodeGenApplicationComponent;
+
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
 
@@ -16,7 +18,7 @@ public class CodeGenApplication extends DaggerApplication {
     @Override
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
 
-        return DaggerCodeGenerationApplicationComponent
+        return DaggerCodeGenApplicationComponent
                 .builder()
                 .create(this);
     }
