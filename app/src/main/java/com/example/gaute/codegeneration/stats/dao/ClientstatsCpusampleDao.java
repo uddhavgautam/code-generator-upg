@@ -30,20 +30,18 @@ public interface ClientstatsCpusampleDao {
      * Inserts a clientClientstatsCpusampleEntity into the table.
      *
      * @param clientClientstatsCpusampleEntity A new ClientCPUSampleEntity.
-     * @return The row TIME_STAMP of the newly inserted ClientCPUSampleEntity.
      */
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    long insert(ClientstatsCpusampleEntity clientClientstatsCpusampleEntity);
+    void insert(ClientstatsCpusampleEntity clientClientstatsCpusampleEntity);
 
     /**
      * Inserts multiple CPUSamples into the database
      *
      * @param cpuSampleEntities An array of new cpuSampleEntities.
-     * @return The row timeStamps of the newly inserted cpuSampleEntities.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    long[] insertAll(ClientstatsCpusampleEntity[] cpuSampleEntities);
+    void insertAll(ClientstatsCpusampleEntity[] cpuSampleEntities);
 
     /**
      * Select all CPUSamples.
@@ -60,7 +58,7 @@ public interface ClientstatsCpusampleDao {
      * @return A {@link Cursor} of the selected ClientCPUSampleEntity.
      */
     @Query("SELECT * FROM cpusample_tbl WHERE timeStamp = :timeStamp")
-    Cursor selectById(long timeStamp);
+    Cursor selectById(String timeStamp);
 
 
     /**
@@ -71,7 +69,7 @@ public interface ClientstatsCpusampleDao {
      * @return A list of {@link Cursor}
      */
     @Query("SELECT * FROM cpusample_tbl WHERE timeStamp >= :timeStamp1 AND  timeStamp >= :timeStamp2")
-    Cursor selectFromInterval(long timeStamp1, long timeStamp2);
+    Cursor selectFromInterval(String timeStamp1, String timeStamp2);
 
 
     /**
@@ -81,7 +79,7 @@ public interface ClientstatsCpusampleDao {
      * @return A number of ClientCPUSampleEntity deleted.
      */
     @Query("SELECT * FROM cpusample_tbl WHERE timeStamp = :timeStamp")
-    int deleteById(Long timeStamp);
+    int deleteById(String timeStamp);
 
     /**
      * Delete a all records from the ClientCPUSampleEntity table.

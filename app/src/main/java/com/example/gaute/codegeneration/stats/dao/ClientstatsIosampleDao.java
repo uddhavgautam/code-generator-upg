@@ -30,20 +30,18 @@ public interface ClientstatsIosampleDao {
      * Inserts a clientstatsIosampleEntity into the table.
      *
      * @param clientstatsIosampleEntity A new ClientstatsIosampleEntity.
-     * @return The row timeStamp of the newly inserted ClientstatsIosampleEntity.
      */
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    long insert(ClientstatsIosampleEntity clientstatsIosampleEntity);
+    void insert(ClientstatsIosampleEntity clientstatsIosampleEntity);
 
     /**
      * Inserts multiple IOSamples into the database
      *
      * @param ioSampleEntities An array of new ioSampleEntities.
-     * @return The row timeStamps of the newly inserted ioSampleEntities.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    long[] insertAll(ClientstatsIosampleEntity[] ioSampleEntities);
+    void insertAll(ClientstatsIosampleEntity[] ioSampleEntities);
 
     /**
      * Select all IOSamples.
@@ -60,7 +58,7 @@ public interface ClientstatsIosampleDao {
      * @return A {@link Cursor} of the selected ClientstatsIosampleEntity.
      */
     @Query("SELECT * FROM iosample_tbl WHERE timeStamp = :timeStamp")
-    Cursor selectById(long timeStamp);
+    Cursor selectById(String timeStamp);
 
 
     /**
@@ -71,7 +69,7 @@ public interface ClientstatsIosampleDao {
      * @return A list of {@link Cursor}
      */
     @Query("SELECT * FROM iosample_tbl WHERE timeStamp >= :timeStamp1 AND  timeStamp >= :timeStamp2")
-    Cursor selectFromInterval(long timeStamp1, long timeStamp2);
+    Cursor selectFromInterval(String timeStamp1, String timeStamp2);
 
 
     /**
@@ -81,7 +79,7 @@ public interface ClientstatsIosampleDao {
      * @return A number of ClientstatsIosampleEntity deleted.
      */
     @Query("SELECT * FROM iosample_tbl WHERE timeStamp = :timeStamp")
-    int deleteById(long timeStamp);
+    int deleteById(String timeStamp);
 
     /**
      * Delete a all records from the ClientstatsIosampleEntity table.

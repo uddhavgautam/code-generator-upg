@@ -7,7 +7,10 @@ package com.example.gaute.codegeneration;
  */
 public class CreateAllEntities {
     public CreateAllEntities() {
-//        createClientstatsCpusampleEntity();
+        createClientstatsCpusampleEntity("timeStamp", "userTime", "systemTime", "cpuUsage");
+    }
+
+    private void createClientstatsCpusampleEntity(String timeStamp, String userTime, String systemTime, Object p0) {
     }
 
     /**
